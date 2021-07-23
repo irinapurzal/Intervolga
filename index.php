@@ -45,12 +45,12 @@
 		    	$row = mysqli_fetch_assoc($result);
 		    	?>
 				<tr>
-					<td id='name'><?php print_r($row['country']); ?></td>
-					<td id='id'><?php print_r($row['capital']); ?></td>
-					<td id='id'><?php print_r($row['president']); ?></td>
-					<td id='id'><?php print_r($row['currency']); ?></td>
-					<td id='id'><?php print_r($row['population']); ?></td>
-					<td id='id'><?php print_r($row['territory']); ?></td>					
+					<td><?php print_r($row['country']); ?></td>
+					<td><?php print_r($row['capital']); ?></td>
+					<td><?php print_r($row['president']); ?></td>
+					<td><?php print_r($row['currency']); ?></td>
+					<td><?php print_r($row['population']); ?></td>
+					<td><?php print_r($row['territory']); ?></td>					
 				</tr>
 			<?php	
 			}
