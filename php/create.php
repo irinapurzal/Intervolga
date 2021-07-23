@@ -9,7 +9,7 @@
 		
 		if(preg_match($pattern, $field))  { 
 			$field = preg_replace($pattern, "", $field); 
-			echo " Вы ввели в поле спец. символы ";	   
+			// echo " Вы ввели в поле спец. символы ";	   
 		} 
 		$field = preg_replace($pattern, "", $field); 
 		$field = htmlentities(htmlspecialchars(strip_tags(stripslashes($field))));
@@ -23,8 +23,8 @@
 	for($i = 0; $i < count($array_fields); $i++){
 		$array_fields[$i] = check_field($array_fields[$i], $pattern_str);
  	}
- 	//Проверка для числовых полей не нужна( так как тип number решает эту проблему)
- 	
+ 	//Проверка для числовых полей не нужна, так как тип number решает эту проблему
+ 	$array_fields_2 = [0=>"population", 1=>"territory"];
  	//Вставка очищенных полей в таблицу
 	$query = "INSERT INTO `countries` (`country`, `capital`, `president`,`currency`,`population`,`territory`) VALUES ('$array_fields[0]', '$array_fields[1]', '$array_fields[2]', '$array_fields[3]', $array_fields_2[0], $array_fields_2[1])";
 	$result = mysqli_query($link, $query) or die("Ошибка запроса" . mysqli_error($link)); 
@@ -35,6 +35,7 @@
 		unset($_POST['$array_fields[$i]']);
 		unset($array_fields[$i]);
  	}	
+ 	$url ='../index.php';
+	header('Location:'.$url); 
 	 
-	 require_once '../index.php';
 ?>
